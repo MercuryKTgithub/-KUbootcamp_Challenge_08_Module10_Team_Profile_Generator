@@ -1,0 +1,19 @@
+{
+  "name": "ku_codingbootcamp_challenge_08_team_profile_generator",
+  "version": "1.0.0",
+  "description": "command-line app - team member profile generator for company manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MercuryKTgithub/KU_CodingBootcamp_Jest-Another-Command-Line-RPG.git"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}

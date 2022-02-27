@@ -6,10 +6,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-  <link rel="stylesheet" href="../src/style.css" />
-  <title>HTML Template for Team Member Layout Rendering</title>
+  <link rel="stylesheet" href="../dist/myteam.css" />
+  <title>My Team - Command Line Based Team Members HTML Generator</title>
 </head>
 
 <body class="flex_column min_100_vh">
@@ -28,22 +26,22 @@
     <div class="col-12 col-md-6">
        <!-- Top sub-panel  -->
       <div id="summary" class="manager_block" >
-         <h4 id="city_header" > 
-         <span id="city_search_term">Jane Jackson</span>
-         <span id="city_img_rep"></span>
+         <h4> 
+         <span>Jane Jackson</span>
+         <span></span>
          </h4>
         <div>
-            <div id="city_temp" class="list_item">
-              <img src="../src/images/manager.png" width='80' height='80'>&nbsp;&nbsp;&nbsp;&nbsp;<span>Manager</span>
+            <div class="list_item">
+              <img src="../src/images/manager.png" width='80' height='80'>&nbsp;&nbsp;&nbsp;&nbsp;<em>Manager</em>
             </div>
-            <div id="city_wind" class="list_item">
-              <strong>ID: </strong> 203J
+            <div class="list_item">
+              <strong>ID: </strong> JJ209
             </div>
-            <div id="city_hum" class="list_item">
-              <strong>Email: </strong><a href = mailto:JJ@social.com >JJ@social.com</a>  
+            <div class="list_item">
+              <strong>Email: </strong><a href = mailto:jjackson@tttech.com >jjackson@tttech.com</a>  
             </div>
-            <div id="city_uvi"  class="list_item">
-              <strong>Office number: </strong>R-101
+            <div class="list_item">
+              <strong>Office number: </strong>R901
             </div>
         </div>
       </div>
@@ -52,49 +50,40 @@
         
           <div class="flex-row justify_center" id="five_day_forcast_panel">
             <div class='team_member_card'>
-     <h6 class='team_member_card_header'>Mike Swanson</h6>
+     <h6 class='team_member_card_header'>engr1</h6>
       <div class='team_member_card_body'>
-        <img src='../src/images/engineer.png' width='32' height='32'>&nbsp;&nbsp;&nbsp;<span>Engineer</span>
-        <p><strong>ID: </strong>101M</p>
-        <p><strong>Email: </strong><a href = mailto:mike@social.com >mike@social.com</a></p>
-        <p><strong>GitHub: </strong><a href = target='_blank' mikeGH >mikeGH</a></p>
+        <img src='../src/images/engineer.png' width='32' height='32'>&nbsp;&nbsp;&nbsp;<em>Engineer</em>
+        <p><strong>ID: </strong>engr1id</p>
+        <p><strong>Email: </strong><a href = mailto:engr1e@tttech.com >engr1e@tttech.com</a></p>
+        <p><strong>GitHub: </strong><a href = 'https://github.com/mikegh'  target='_blank' >mikegh</a></p>
         
       </div>
     </div><div class='team_member_card'>
-     <h6 class='team_member_card_header'>Tracy Tran</h6>
+     <h6 class='team_member_card_header'>engr2</h6>
       <div class='team_member_card_body'>
-        <img src='../src/images/engineer.png' width='32' height='32'>&nbsp;&nbsp;&nbsp;<span>Engineer</span>
-        <p><strong>ID: </strong>102T</p>
-        <p><strong>Email: </strong><a href = mailto:TracyTr@social.com >TracyTr@social.com</a></p>
-        <p><strong>GitHub: </strong><a href = target='_blank' trishGH >trishGH</a></p>
+        <img src='../src/images/engineer.png' width='32' height='32'>&nbsp;&nbsp;&nbsp;<em>Engineer</em>
+        <p><strong>ID: </strong>engr2id</p>
+        <p><strong>Email: </strong><a href = mailto:engr2e@tttech.com >engr2e@tttech.com</a></p>
+        <p><strong>GitHub: </strong><a href = 'https://github.com/bensongh'  target='_blank' >bensongh</a></p>
         
       </div>
     </div><div class='team_member_card'>
-     <h6 class='team_member_card_header'>Benson J. Lee</h6>
+     <h6 class='team_member_card_header'>engr3</h6>
       <div class='team_member_card_body'>
-        <img src='../src/images/engineer.png' width='32' height='32'>&nbsp;&nbsp;&nbsp;<span>Engineer</span>
-        <p><strong>ID: </strong>108T</p>
-        <p><strong>Email: </strong><a href = mailto:BensonJL@social.com >BensonJL@social.com</a></p>
-        <p><strong>GitHub: </strong><a href = target='_blank' BensonGH >BensonGH</a></p>
+        <img src='../src/images/engineer.png' width='32' height='32'>&nbsp;&nbsp;&nbsp;<em>Engineer</em>
+        <p><strong>ID: </strong>engr3id</p>
+        <p><strong>Email: </strong><a href = mailto:engr3e@tttech.com >engr3e@tttech.com</a></p>
+        <p><strong>GitHub: </strong><a href = 'https://github.com/Larrygh'  target='_blank' >Larrygh</a></p>
         
       </div>
     </div> 
             <div class='team_member_card'>
-     <h6 class='team_member_card_header'>Kayla Khan</h6>
+     <h6 class='team_member_card_header'>int1</h6>
       <div class='team_member_card_body'>
-        <img src='../src/images/intern.png'>&nbsp;&nbsp;&nbsp;<span>Intern</span>
-        <p><strong>ID: </strong>IT100</p>
-        <p><strong>Email: </strong> <a href = mailto:Kayla@social.com >Kayla@social.com</a></p>
-        <p><strong>School: </strong>Friends University</p>
-        
-      </div>
-    </div><div class='team_member_card'>
-     <h6 class='team_member_card_header'>David Brown</h6>
-      <div class='team_member_card_body'>
-        <img src='../src/images/intern.png'>&nbsp;&nbsp;&nbsp;<span>Intern</span>
-        <p><strong>ID: </strong>IT100</p>
-        <p><strong>Email: </strong> <a href = mailto:DavidInt@social.com >DavidInt@social.com</a></p>
-        <p><strong>School: </strong>Newman University</p>
+        <img src='../src/images/intern.png'>&nbsp;&nbsp;&nbsp;<em>Intern</em>
+        <p><strong>ID: </strong>ent1id</p>
+        <p><strong>Email: </strong> <a href = mailto:ent1e@tttech.com >ent1e@tttech.com</a></p>
+        <p><strong>School: </strong>friends university</p>
         
       </div>
     </div> 
@@ -109,7 +98,6 @@
        
     </div>
     <!-- End of Right Panel -->
-
 
   </main>  
    

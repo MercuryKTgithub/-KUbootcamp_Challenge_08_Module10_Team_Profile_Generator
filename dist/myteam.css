@@ -214,12 +214,14 @@ p {
 
 .team_member_card a {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9rem;
   color: var(--gray_tone_light);
   text-decoration: none;
 }
 
 .team_member_card a:hover {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9rem;
   color: var(--gray_tone_light);
   text-decoration: underline;
 }

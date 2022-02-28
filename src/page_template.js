@@ -162,7 +162,7 @@ function openGitHubLinkInNewTab(github){
 
 function formatActiveEmail(email){
    var href_val = "mailto:" + email;
-   return '<a href = ' + href_val +  ' >' + email + '</a>';
+   return "<a href='" + href_val +  "' >" + email + "</a>";
 }
 
 function renderInternMemberColumns(internTeam)

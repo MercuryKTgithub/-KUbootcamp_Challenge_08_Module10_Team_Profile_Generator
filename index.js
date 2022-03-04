@@ -218,12 +218,16 @@ const promtManagerClient = () => {
          type: 'input',
          name: 'name',
          message: 'What is the name of the manager? (Required)',
-         validate: nameInput => {
-            if(nameInput){
-               return true;
-            }else{
-               console.log("Please enter the name of the manager: ");
+         validate: (nameInput) => {
+            // [a-zA-Z]{4,} meaning 3 or more ASCII letters, hyphen, apostrophe, and dot are allowed
+            // ^ - start of string // $ - end of string.              
+            const atleast3alphachars = /^[a-zA-Z-'. ]{3,}$/
+            if(!atleast3alphachars.test(nameInput))
+            {
+               console.log(`\n>> Please provide at least 3 non-numeric and non-special characters for the name <<\n>> Hyphen, apostrophe, and dot are allowed <<`);
                return false;
+            }else{
+               return true;
             }
          }
       },
@@ -231,12 +235,17 @@ const promtManagerClient = () => {
          type: 'input',
          name: 'id',
          message: 'What is the ID of the manager (Required)',
-         validate: idInput => {
-            if(idInput){
-               return true;
-            }else{
-               console.log("Please enter the ID of the manager: ");
+         validate: (idInput) => {
+            // [a-zA-Z0-9]{2,} meaning 2 or more alpha numeric ASCII letters, no special characters except hyphen and pound are allowed
+            // ^ - start of string // $ - end of string.              
+            const atleast2alphanumeric = /^[a-zA-Z0-9-#]{2,}$/
+            if(!atleast2alphanumeric.test(idInput))
+            {
+               // console.log("\n>>Please provide at least 2 alpha-numeric and non-special characters for the ID<<\n(Hyphen - and hash # are allowed");
+               console.log(`\n>> Please provide at least 2 alpha-numeric and non-special characters for the ID <<\n>> Hyphen (-) and hash (#) are allowed <<`);
                return false;
+            }else{
+               return true;
             }
          }
       },
@@ -244,12 +253,14 @@ const promtManagerClient = () => {
          type: 'input',
          name: 'email',
          message: 'What is the email of the manager (Required): ',
-         validate: emailInput => {
-            if(emailInput){
-               return true;
-            }else{
-               console.log("Please provide the email of the manager: ");
+         validate: (emailInput) => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/           
+            if(!emailRegex.test(emailInput))
+            {
+               console.log("\n>> Please provide a valid email address for the manager <<");
                return false;
+            }else{
+               return true;
             }
          }
       },
@@ -257,12 +268,16 @@ const promtManagerClient = () => {
          type: 'input',
          name: 'officeNumber',
          message: 'What is the office number of the manager: (Required): ',
-         validate: officeNumberInput => {
-            if(officeNumberInput){
-               return true;
-            }else{
-               console.log("Please provide the office number of the manager: ");
+         validate: (officeNumberInput) => {
+             // [a-zA-Z0-9]{2,} meaning 2 or more alpha numeric ASCII letters,no special characters are allowed
+            // ^ - start of string // $ - end of string.              
+            const atleast2alphanumeric = /^[a-zA-Z0-9-#]{2,}$/
+            if(!atleast2alphanumeric.test(officeNumberInput))
+            {
+               console.log(`\n>> Please provide at least 2 alpha-numeric and non-special characters for the office number <<\n>> Hyphen (-) and hash (#) are allowed <<`);
                return false;
+            }else{
+               return true;
             }
          }
       }
@@ -372,27 +387,4 @@ promtManagerClient()
    });
 
  
-
-
-// // promtManagerClient()
-// //    .then(prompEngrTeamMember)
-// //    .then(profileDataColl => {
-// //       // return generatePage(profileDataColl);
-// //       console.log(profileDataColl);
-// //       console.log(engineerTeam);
-// //       console.log(managerTeam);
-// //    })
-// //    // .then(pageHTML => {
-// //    //    return writeFile(pageHTML); // returns a Promise
-// //    // })
-// //    // .then(writeFileResponse => {
-// //    //    console.log(writeFileResponse); //writeFileResponse is the object provided by the writeFile() function's resolve() execution
-// //    //    return copyFile(); // returns a Promise
-// //    // })
-// //    // .then(copyFileResponse => {
-// //    //    console.log(copyFileResponse); //copyFileResponse is the object provided by the copyFile() function's resolve() execution
-// //    // })
-// //    // .catch(err => {
-// //    //    console.log(err);
-// //    // });
 

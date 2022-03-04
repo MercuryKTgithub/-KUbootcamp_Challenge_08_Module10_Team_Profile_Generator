@@ -23,31 +23,31 @@ const generatePage = (managerEntity,  engineerTeam, internTeam) => {
   <main class="flex-row justify_center frame">
     
    <!-- Start of Left Panel -->
-    <div class="col-12 col-md-3">
+    <div class="col-12 col-md-2">
        
     </div>
     <!-- End of Left Panel -->
 
     <!-- Start of Mid Panel -->
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-8">
        <!-- Top sub-panel  -->
-      <div id="summary" class="manager_block" >
+      <div class="manager_block" >
          <h4> 
          <span>${managerEntity.name}</span>
          <span></span>
          </h4>
         <div>
             <div class="list_item">
-              <img src="../src/images/manager.png" width='80' height='80'>&nbsp;&nbsp;&nbsp;&nbsp;<em>${getRoleInfo(managerEntity)}</em>
+              <img src="../src/images/manager.png">&nbsp;&nbsp;&nbsp;&nbsp;<em>${getRoleInfo(managerEntity)}</em>
             </div>
             <div class="list_item">
-              <strong>ID: </strong> ${managerEntity.id}
+              <strong>ID:&nbsp;&nbsp;&nbsp;&nbsp;</strong> ${managerEntity.id}
             </div>
             <div class="list_item">
-              <strong>Email: </strong>${formatActiveEmail(managerEntity.email)}  
+              <strong>Email:&nbsp;&nbsp;&nbsp;&nbsp;</strong>${formatActiveEmail(managerEntity.email)}  
             </div>
             <div class="list_item">
-              <strong>Office number: </strong>${managerEntity.officeNumber}
+              <strong>Office number:&nbsp;&nbsp;&nbsp;&nbsp;${managerEntity.officeNumber} </strong>
             </div>
         </div>
       </div>
@@ -64,7 +64,7 @@ const generatePage = (managerEntity,  engineerTeam, internTeam) => {
     <!-- End of Mid Panel -->
 
      <!-- Start of Right Panel -->
-     <div class="col-12 col-md-3">
+     <div class="col-12 col-md-2">
        
     </div>
     <!-- End of Right Panel -->
@@ -142,7 +142,7 @@ function renderEngineerMemberColumns(engineerTeam)
     `<div class='team_member_card'>
      <h6 class='team_member_card_header'>${engineer_displayrecords[j].name}</h6>
       <div class='team_member_card_body'>
-        <img src='${engineer_displayrecords[j].iconfile}' width='32' height='32'>&nbsp;&nbsp;&nbsp;<em>${getRoleInfo(engineer_displayrecords[j])}</em>
+        <img src='${engineer_displayrecords[j].iconfile}'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>${getRoleInfo(engineer_displayrecords[j])}</em>
         <p><strong>ID: </strong>${engineer_displayrecords[j].id}</p>
         <p><strong>Email: </strong>${formatActiveEmail(engineer_displayrecords[j].email)}</p>
         <p><strong>GitHub: </strong>${openGitHubLinkInNewTab(engineer_displayrecords[j].github)}</p>
@@ -203,7 +203,7 @@ function renderInternMemberColumns(internTeam)
     `<div class='team_member_card'>
      <h6 class='team_member_card_header'>${intern_displayrecords[j].name}</h6>
       <div class='team_member_card_body'>
-        <img src='${intern_displayrecords[j].iconfile}'>&nbsp;&nbsp;&nbsp;<em>${getRoleInfo(intern_displayrecords[j])}</em>
+        <img src='${intern_displayrecords[j].iconfile}'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>${getRoleInfo(intern_displayrecords[j])}</em>
         <p><strong>ID: </strong>${intern_displayrecords[j].id}</p>
         <p><strong>Email: </strong> ${formatActiveEmail(intern_displayrecords[j].email)}</p>
         <p><strong>School: </strong>${intern_displayrecords[j].school}</p>

@@ -24,12 +24,18 @@ const prompInternTeamMember = (profileData) => {
             type: 'input',
             name: 'name',
             message: 'What is the name of your intern? (Required)',
-            validate: nameInput => {
-               if(nameInput){
+            validate: (nameInput) => {
+               const atleast3alphachars = /^[a-zA-Z\s'.]{4,}$/  // if 'aj ' is entered (space included), it should fail the test
+               if(!atleast3alphachars.test(nameInput))
+               {
+                  console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the name input <<\n>> Apostrophe (') and dot (.) are allowed <<`);
+                  return false;               
+               }else if (nameInput.includes("'.") || nameInput.includes(".'") || nameInput.includes("..") || nameInput.includes("''")){
+                  console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the name input <<\n>> Apostrophe (') and dot (.) cannot be adjacent nor consecutive <<`);
+                  return false; 
+               }
+               else{
                   return true;
-               }else{
-                  console.log("Please enter the name of your intern:");
-                  return false;
                }
             }
          },
@@ -38,12 +44,18 @@ const prompInternTeamMember = (profileData) => {
             name: 'id',
             message: 'Provide the ID of the intern (Required)',
             validate: idInput => {
-               if(idInput){
-                  return true;
-               }else{
-                  console.log("Provide the ID of the intern:");
-                  return false;
-               }
+               const atleast2alphanumeric = /^[a-zA-Z0-9-#]{2,}$/
+            if(!atleast2alphanumeric.test(idInput))
+            {
+               console.log(`\n>> Please provide at least 2 alpha-numeric and non-special characters only for the ID <<\n>> Hyphen (-) and hash (#) are allowed <<`);
+               return false;
+            }else if (idInput.includes("#-") || idInput.includes("-#") || idInput.includes("--") || idInput.includes("##")){
+               console.log(`\n>> Please provide at least 2 non-numeric and non-special characters only for the name input <<\n>> Hyphen (-) and hash (#) cannot be adjacent nor consecutive <<`);
+               return false; 
+            }
+            else{
+               return true;
+            }
             }
          },
          {
@@ -51,11 +63,13 @@ const prompInternTeamMember = (profileData) => {
             name: 'email',
             message: 'Enter the email address of your intern. (Required)',
             validate: emailInput => {
-               if(emailInput){
-                  return true;
-               }else{
-                  console.log("Please enter the email address of your intern:");
+               const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/           
+               if(!emailRegex.test(emailInput))
+               {
+                  console.log("\n>> Please provide a valid email address for the manager <<");
                   return false;
+               }else{
+                  return true;
                }
             }
          },
@@ -64,11 +78,17 @@ const prompInternTeamMember = (profileData) => {
             name: 'school',
             message: 'Enter the school-name of your intern. (Required)',
             validate: schoolInput => {
-               if(schoolInput){
+               const atleast3alphachars = /^[a-zA-Z\s'.]{3,}$/
+               if(!atleast3alphachars.test(schoolInput))
+               {
+                  console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the school-name input <<\n>> Apostrophe (') and dot (.) cannot be adjacent nor consecutive  <<`);
+                  return false;               
+               }else if (schoolInput.includes("'.") || schoolInput.includes(".'") || schoolInput.includes("..") || schoolInput.includes("''")){
+                  console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the school-name input <<\n>> Apostrophe (') and dot (.) cannot be adjacent nor consecutive <<`);
+                  return false; 
+               }
+               else{
                   return true;
-               }else{
-                  console.log("Please enter the school-name of your intern:");
-                  return false;
                }
             }
          },
@@ -104,8 +124,7 @@ const prompInternTeamMember = (profileData) => {
             })
          } // end of else
       });
-}   
- 
+}    
 
 const prompEngrTeamMember = (profileData) => { 
    console.log(`
@@ -122,12 +141,18 @@ const prompEngrTeamMember = (profileData) => {
             type: 'input',
             name: 'name',
             message: 'What is the name of your engineer team member? (Required)',
-            validate: nameInput => {
-               if(nameInput){
+            validate: (nameInput) => {
+               const atleast3alphachars = /^[a-zA-Z\s'.]{4,}$/  // if 'aj ' is entered (space included), it should fail the test
+               if(!atleast3alphachars.test(nameInput))
+               {
+                  console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the name input <<\n>> Apostrophe (') and dot (.) are allowed <<`);
+                  return false;               
+               }else if (nameInput.includes("'.") || nameInput.includes(".'") || nameInput.includes("..") || nameInput.includes("''")){
+                  console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the name input <<\n>> Apostrophe (') and dot (.) cannot be adjacent nor consecutive <<`);
+                  return false; 
+               }
+               else{
                   return true;
-               }else{
-                  console.log("Please enter the name of your engineer team member:");
-                  return false;
                }
             }
          },
@@ -135,12 +160,18 @@ const prompEngrTeamMember = (profileData) => {
             type: 'input',
             name: 'id',
             message: 'Provide the ID of the engineer team member (Required)',
-            validate: nameInput => {
-               if(nameInput){
-                  return true;
-               }else{
-                  console.log("Provide the ID of the engineer team member:");
+            validate: idInput => {
+               const atleast2alphanumeric = /^[a-zA-Z0-9-#]{2,}$/
+               if(!atleast2alphanumeric.test(idInput))
+               {
+                  console.log(`\n>> Please provide at least 2 alpha-numeric and non-special characters only for the ID <<\n>> Hyphen (-) and hash (#) are allowed <<`);
                   return false;
+               }else if (idInput.includes("#-") || idInput.includes("-#") || idInput.includes("--") || idInput.includes("##")){
+                  console.log(`\n>> Please provide at least 2 non-numeric and non-special characters only for the name input <<\n>> Hyphen (-) and hash (#) cannot be adjacent nor consecutive <<`);
+                  return false; 
+               }
+               else{
+                  return true;
                }
             }
          },
@@ -148,12 +179,14 @@ const prompEngrTeamMember = (profileData) => {
             type: 'input',
             name: 'email',
             message: 'Enter the email address of your engineer team member. (Required)',
-            validate: nameInput => {
-               if(nameInput){
-                  return true;
-               }else{
-                  console.log("Please enter the email address of your engineer team member:");
+            validate: emailInput => {
+               const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/           
+               if(!emailRegex.test(emailInput))
+               {
+                  console.log("\n>> Please provide a valid email address for the manager <<");
                   return false;
+               }else{
+                  return true;
                }
             }
          },
@@ -161,12 +194,20 @@ const prompEngrTeamMember = (profileData) => {
             type: 'input',
             name: 'github',
             message: 'Enter the GitHub User-name of your engineer team member. (Required)',
-            validate: nameInput => {
-               if(nameInput){
-                  return true;
-               }else{
-                  console.log("Please enter GitHub User-name of your engineer team member:");
+            validate: githubInput => {
+               const githubUserNameRegex = /^[a-zA-Z\d](?:[a-zA-Z\d]|-(?=[a-zA-Z\d])){0,38}$/ // Curtesy of https://github.com/shinnn/github-username-regex edit: add A-Z to allow capital letter
+               if(!githubUserNameRegex.test(githubInput))
+               {
+                  console.log(`
+                  \n>> Please provide a valid GibHub Username input <<
+                  \t[ Please ensure a Github Username: ]
+                  \t>> may only contain alphanumeric characters or hyphens << 
+                  \t>> cannot have multiple consecutive hyphens <<
+                  \t>> cannot begin or end with a hyphen <<
+                  \t>> cannot exceed 39 characters in length << `);
                   return false;
+               }else{
+                  return true;
                }
             }
          },
@@ -213,20 +254,24 @@ const promtManagerClient = () => {
   '------------------------------------------------------------------------------'
    `);
    return inquirer.prompt([
-   // inquirer.prompt([
+   // inquirer.prompt([     
       {
          type: 'input',
          name: 'name',
          message: 'What is the name of the manager? (Required)',
          validate: (nameInput) => {
-            // [a-zA-Z]{4,} meaning 3 or more ASCII letters, hyphen, apostrophe, and dot are allowed
+            // [a-zA-Z]{3,} meaning 4 or more ASCII letters, apostrophe, and dot count
             // ^ - start of string // $ - end of string.              
-            const atleast3alphachars = /^[a-zA-Z-'. ]{3,}$/
+            const atleast3alphachars = /^[a-zA-Z\s'.]{4,}$/  // if 'aj ' is entered (space included), it should fail the test
             if(!atleast3alphachars.test(nameInput))
             {
-               console.log(`\n>> Please provide at least 3 non-numeric and non-special characters for the name <<\n>> Hyphen, apostrophe, and dot are allowed <<`);
-               return false;
-            }else{
+               console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the name input <<\n>> Apostrophe (') and dot (.) are allowed <<`);
+               return false;               
+            }else if (nameInput.includes("'.") || nameInput.includes(".'") || nameInput.includes("..") || nameInput.includes("''")){
+               console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the name input <<\n>> Apostrophe (') and dot (.) cannot be adjacent nor consecutive <<`);
+               return false; 
+            }
+            else{
                return true;
             }
          }
@@ -241,10 +286,13 @@ const promtManagerClient = () => {
             const atleast2alphanumeric = /^[a-zA-Z0-9-#]{2,}$/
             if(!atleast2alphanumeric.test(idInput))
             {
-               // console.log("\n>>Please provide at least 2 alpha-numeric and non-special characters for the ID<<\n(Hyphen - and hash # are allowed");
-               console.log(`\n>> Please provide at least 2 alpha-numeric and non-special characters for the ID <<\n>> Hyphen (-) and hash (#) are allowed <<`);
+               console.log(`\n>> Please provide at least 2 alpha-numeric and non-special characters only for the ID <<\n>> Hyphen (-) and hash (#) are allowed <<`);
                return false;
-            }else{
+            }else if (idInput.includes("#-") || idInput.includes("-#") || idInput.includes("--") || idInput.includes("##")){
+               console.log(`\n>> Please provide at least 2 non-numeric and non-special characters only for the name input <<\n>> Hyphen (-) and hash (#) cannot be adjacent nor consecutive <<`);
+               return false; 
+            }
+            else{
                return true;
             }
          }
@@ -269,14 +317,18 @@ const promtManagerClient = () => {
          name: 'officeNumber',
          message: 'What is the office number of the manager: (Required): ',
          validate: (officeNumberInput) => {
-             // [a-zA-Z0-9]{2,} meaning 2 or more alpha numeric ASCII letters,no special characters are allowed
+            // [a-zA-Z0-9]{2,} meaning 2 or more alpha numeric ASCII letters,no special characters are allowed
             // ^ - start of string // $ - end of string.              
             const atleast2alphanumeric = /^[a-zA-Z0-9-#]{2,}$/
             if(!atleast2alphanumeric.test(officeNumberInput))
             {
-               console.log(`\n>> Please provide at least 2 alpha-numeric and non-special characters for the office number <<\n>> Hyphen (-) and hash (#) are allowed <<`);
+               console.log(`\n>> Please provide at least 2 alpha-numeric and non-special characters only for the office number <<\n>> Hyphen (-) and hash (#) are allowed <<`);
                return false;
-            }else{
+            }else if(officeNumberInput.includes("#-") || officeNumberInput.includes("-#") || officeNumberInput.includes("##") || officeNumberInput.includes("--")){
+               console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the name input <<\n>> Hyphen (-) and hash (#) cannot be adjacent nor consecutive <<`);
+               return false; 
+            }
+            else{
                return true;
             }
          }
@@ -383,7 +435,12 @@ promtManagerClient()
      
    })
    .catch(err => {
-      console.log(err);
+      // Prompt couldn't be rendered in the current environment
+      if (err.isTtyError) {
+         console.log("Your console environment is not supported!")
+       } else {
+         console.log(err)
+       }
    });
 
  

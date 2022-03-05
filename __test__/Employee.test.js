@@ -2,12 +2,12 @@ const Employee = require('../lib/Employee');
 const EMPTY_STRING = '';
 const ROLE_CODE = 'Employee';
 
-test("This test gets employee's name - no email -------" , () => {
+test("This test gets employee's name - empty string id - no email necessary -------" , () => {
   const empployee = new Employee('John Brown', EMPTY_STRING);
   expect(empployee.getName()).toEqual(expect.stringContaining(empployee.name.toString()));
 });
 
-test("This test gets employee's id - no email  -------" , () => {
+test("This test gets employee's id - no email necessary -------" , () => {
   const empployee = new Employee('John Brown', '1048');
   expect(empployee.getId()).toEqual(expect.stringContaining(empployee.id.toString()));
 });

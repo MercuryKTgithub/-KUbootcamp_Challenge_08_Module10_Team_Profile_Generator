@@ -23,15 +23,15 @@ const prompInternTeamMember = (profileData) => {
          {
             type: 'input',
             name: 'name',
-            message: 'What is the name of your intern? (Required)',
+            message: 'What is the name of your intern [First Last]? (Required)',
             validate: (nameInput) => {
-               const atleast3alphachars = /^[a-zA-Z\s'.]{4,}$/  // if 'aj ' is entered (space included), it should fail the test
+               const atleast3alphachars = /^([a-zA-Z.']{2,}\s[a-zA-Z.']{1,})\s?([a-zA-Z.']{1,})?$/   // Could take in a mid name/ second surname
                if(!atleast3alphachars.test(nameInput))
                {
-                  console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the name input <<\n>> Apostrophe (') and dot (.) are allowed <<`);
+                  console.log(`\n>> Please provide at least 2 non-numeric characters for First Name and 1 non-numeric character for Last Name  <<\n>> Apostrophe (') and dot (.) are allowed as special characters <<`);
                   return false;               
-               }else if (nameInput.includes("'.") || nameInput.includes(".'") || nameInput.includes("..") || nameInput.includes("''")){
-                  console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the name input <<\n>> Apostrophe (') and dot (.) cannot be adjacent nor consecutive <<`);
+               } else if (nameInput.includes("'.") || nameInput.includes(".'") || nameInput.includes("..") || nameInput.includes("''")){
+                  console.log(`\n>> Please provide at least 2 non-numeric characters for the first name <<\n>> Apostrophe (') and dot (.) cannot be adjacent nor consecutive <<`);
                   return false; 
                }
                else{
@@ -43,19 +43,21 @@ const prompInternTeamMember = (profileData) => {
             type: 'input',
             name: 'id',
             message: 'Provide the ID of the intern (Required)',
-            validate: idInput => {
-               const atleast2alphanumeric = /^[a-zA-Z0-9-#]{2,}$/
-            if(!atleast2alphanumeric.test(idInput))
-            {
-               console.log(`\n>> Please provide at least 2 alpha-numeric and non-special characters only for the ID <<\n>> Hyphen (-) and hash (#) are allowed <<`);
-               return false;
-            }else if (idInput.includes("#-") || idInput.includes("-#") || idInput.includes("--") || idInput.includes("##")){
-               console.log(`\n>> Please provide at least 2 non-numeric and non-special characters only for the name input <<\n>> Hyphen (-) and hash (#) cannot be adjacent nor consecutive <<`);
-               return false; 
-            }
-            else{
-               return true;
-            }
+            validate: (idInput) => {
+               // [a-zA-Z0-9]{2,} meaning 2 or more alpha numeric ASCII letters, no special characters except hyphen and pound are allowed
+               // ^ - start of string // $ - end of string.              
+               const atleast2alphanumeric = /^[a-zA-Z0-9-#]{3,}$/
+               if(!atleast2alphanumeric.test(idInput))
+               {
+                  console.log(`\n>> Please provide at least 3 alpha-numeric and non-special characters only for your company Employee ID input <<\n>> Hyphen (-) and hash (#) are allowed as special characters <<`);
+                  return false;
+               }else if (idInput.includes("#-") || idInput.includes("-#") || idInput.includes("--") || idInput.includes("##")){
+                  console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for your company Employee ID input <<\n>> Hyphen (-) and hash (#) cannot be adjacent nor consecutive <<`);
+                  return false; 
+               }
+               else{
+                  return true;
+               }
             }
          },
          {
@@ -140,15 +142,15 @@ const prompEngrTeamMember = (profileData) => {
          {
             type: 'input',
             name: 'name',
-            message: 'What is the name of your engineer team member? (Required)',
+            message: 'What is the name of your engineer team member [First Last]? (Required)',
             validate: (nameInput) => {
-               const atleast3alphachars = /^[a-zA-Z\s'.]{4,}$/  // if 'aj ' is entered (space included), it should fail the test
+               const atleast3alphachars = /^([a-zA-Z.']{2,}\s[a-zA-Z.']{1,})\s?([a-zA-Z.']{1,})?$/   // Could take in a mid name/ second surname
                if(!atleast3alphachars.test(nameInput))
                {
-                  console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the name input <<\n>> Apostrophe (') and dot (.) are allowed <<`);
+                  console.log(`\n>> Please provide at least 2 non-numeric characters for First Name and 1 non-numeric character for Last Name  <<\n>> Apostrophe (') and dot (.) are allowed as special characters <<`);
                   return false;               
-               }else if (nameInput.includes("'.") || nameInput.includes(".'") || nameInput.includes("..") || nameInput.includes("''")){
-                  console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the name input <<\n>> Apostrophe (') and dot (.) cannot be adjacent nor consecutive <<`);
+               } else if (nameInput.includes("'.") || nameInput.includes(".'") || nameInput.includes("..") || nameInput.includes("''")){
+                  console.log(`\n>> Please provide at least 2 non-numeric characters for the first name <<\n>> Apostrophe (') and dot (.) cannot be adjacent nor consecutive <<`);
                   return false; 
                }
                else{
@@ -159,15 +161,17 @@ const prompEngrTeamMember = (profileData) => {
          {
             type: 'input',
             name: 'id',
-            message: 'Provide the ID of the engineer team member (Required)',
-            validate: idInput => {
-               const atleast2alphanumeric = /^[a-zA-Z0-9-#]{2,}$/
+            message: 'What is the ID of the engineer team member (Required)',
+            validate: (idInput) => {
+               // [a-zA-Z0-9]{2,} meaning 2 or more alpha numeric ASCII letters, no special characters except hyphen and pound are allowed
+               // ^ - start of string // $ - end of string.              
+               const atleast2alphanumeric = /^[a-zA-Z0-9-#]{3,}$/
                if(!atleast2alphanumeric.test(idInput))
                {
-                  console.log(`\n>> Please provide at least 2 alpha-numeric and non-special characters only for the ID <<\n>> Hyphen (-) and hash (#) are allowed <<`);
+                  console.log(`\n>> Please provide at least 3 alpha-numeric and non-special characters only for your company Employee ID input <<\n>> Hyphen (-) and hash (#) are allowed as special characters <<`);
                   return false;
                }else if (idInput.includes("#-") || idInput.includes("-#") || idInput.includes("--") || idInput.includes("##")){
-                  console.log(`\n>> Please provide at least 2 non-numeric and non-special characters only for the name input <<\n>> Hyphen (-) and hash (#) cannot be adjacent nor consecutive <<`);
+                  console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for your company Employee ID input <<\n>> Hyphen (-) and hash (#) cannot be adjacent nor consecutive <<`);
                   return false; 
                }
                else{
@@ -249,26 +253,26 @@ const prompEngrTeamMember = (profileData) => {
 
 const promtManagerClient = () => {
    console.log(`
-  .------------------------------------------------------------------------------.
-  |                            Team Profile Generator                            |
-  '------------------------------------------------------------------------------'
+  .-------------------------------------------------------------------------.
+  |                         Team Profile Generator                          |
+  '-------------------------------------------------------------------------'
    `);
    return inquirer.prompt([
    // inquirer.prompt([     
       {
          type: 'input',
          name: 'name',
-         message: 'What is the name of the manager? (Required)',
+         message: 'What is the name of the manager [First Last]? (Required)',
          validate: (nameInput) => {
-            // [a-zA-Z]{3,} meaning 4 or more ASCII letters, apostrophe, and dot count
+            // [a-zA-Z]{3,} meaning 3 or more ASCII letters, apostrophe, and dot count
             // ^ - start of string // $ - end of string.              
-            const atleast3alphachars = /^[a-zA-Z\s'.]{4,}$/  // if 'aj ' is entered (space included), it should fail the test
+            const atleast3alphachars = /^([a-zA-Z.']{2,}\s[a-zA-Z.']{1,})\s?([a-zA-Z.']{1,})?$/   // Could take in a mid name/ second surname
             if(!atleast3alphachars.test(nameInput))
             {
-               console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the name input <<\n>> Apostrophe (') and dot (.) are allowed <<`);
+               console.log(`\n>> Please provide at least 2 non-numeric characters for First Name and 1 non-numeric character for Last Name  <<\n>> Apostrophe (') and dot (.) are allowed as special characters <<`);
                return false;               
-            }else if (nameInput.includes("'.") || nameInput.includes(".'") || nameInput.includes("..") || nameInput.includes("''")){
-               console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the name input <<\n>> Apostrophe (') and dot (.) cannot be adjacent nor consecutive <<`);
+            } else if (nameInput.includes("'.") || nameInput.includes(".'") || nameInput.includes("..") || nameInput.includes("''")){
+               console.log(`\n>> Please provide at least 2 non-numeric characters for the first name <<\n>> Apostrophe (') and dot (.) cannot be adjacent nor consecutive <<`);
                return false; 
             }
             else{
@@ -283,13 +287,13 @@ const promtManagerClient = () => {
          validate: (idInput) => {
             // [a-zA-Z0-9]{2,} meaning 2 or more alpha numeric ASCII letters, no special characters except hyphen and pound are allowed
             // ^ - start of string // $ - end of string.              
-            const atleast2alphanumeric = /^[a-zA-Z0-9-#]{2,}$/
+            const atleast2alphanumeric = /^[a-zA-Z0-9-#]{3,}$/
             if(!atleast2alphanumeric.test(idInput))
             {
-               console.log(`\n>> Please provide at least 2 alpha-numeric and non-special characters only for the ID <<\n>> Hyphen (-) and hash (#) are allowed <<`);
+               console.log(`\n>> Please provide at least 3 alpha-numeric and non-special characters only for your company Employee ID input <<\n>> Hyphen (-) and hash (#) are allowed as special characters <<`);
                return false;
             }else if (idInput.includes("#-") || idInput.includes("-#") || idInput.includes("--") || idInput.includes("##")){
-               console.log(`\n>> Please provide at least 2 non-numeric and non-special characters only for the name input <<\n>> Hyphen (-) and hash (#) cannot be adjacent nor consecutive <<`);
+               console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for your company Employee ID input <<\n>> Hyphen (-) and hash (#) cannot be adjacent nor consecutive <<`);
                return false; 
             }
             else{
@@ -322,7 +326,7 @@ const promtManagerClient = () => {
             const atleast2alphanumeric = /^[a-zA-Z0-9-#]{2,}$/
             if(!atleast2alphanumeric.test(officeNumberInput))
             {
-               console.log(`\n>> Please provide at least 2 alpha-numeric and non-special characters only for the office number <<\n>> Hyphen (-) and hash (#) are allowed <<`);
+               console.log(`\n>> Please provide at least 2 alpha-numeric and non-special characters only for the office number <<\n>> Hyphen (-) and hash (#) are allowed as special characters <<`);
                return false;
             }else if(officeNumberInput.includes("#-") || officeNumberInput.includes("-#") || officeNumberInput.includes("##") || officeNumberInput.includes("--")){
                console.log(`\n>> Please provide at least 3 non-numeric and non-special characters only for the name input <<\n>> Hyphen (-) and hash (#) cannot be adjacent nor consecutive <<`);

@@ -13,4 +13,4 @@ test("Gets intern's role -------", () => {
    expect(intern.getRole()).toEqual(expect.stringContaining(ROLE_CODE));
 });
 
-exports.modules = Intern;
+ 

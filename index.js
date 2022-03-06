@@ -203,7 +203,7 @@ const prompEngrTeamMember = (profileData) => {
          {
             type: 'input',
             name: 'github',
-            message: 'Enter the GitHub User-name of your engineer team member. (Required)',
+            message: 'Enter the GitHub User-name of your engineer team member. (Required)\n ',
             validate: githubInput => {
                const githubUserNameRegex = /^[a-zA-Z\d](?:[a-zA-Z\d]|-(?=[a-zA-Z\d])){0,38}$/ // Curtesy of https://github.com/shinnn/github-username-regex edit: add A-Z to allow capital letter
                if(!githubUserNameRegex.test(githubInput))

@@ -18,7 +18,7 @@ const generatePage = (managerEntity,  engineerTeam, internTeam) => {
 
 <body class="flex_column min_100_vh">
   <header class="hero">
-    <h1 class="app_title"> My Team </h1>
+    <h1 class="app_title"> MY TEAM </h1>
   </header>
   <main class="flex-row justify_center frame">
     

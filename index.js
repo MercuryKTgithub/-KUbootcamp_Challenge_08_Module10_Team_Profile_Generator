@@ -214,7 +214,8 @@ const prompEngrTeamMember = (profileData) => {
                   \t>> may only contain alphanumeric characters or hyphens << 
                   \t>> cannot have multiple consecutive hyphens <<
                   \t>> cannot begin or end with a hyphen <<
-                  \t>> cannot exceed 39 characters in length << `);
+                  \t>> cannot exceed 39 characters in length << 
+                  `);
                   return false;
                }else{
                   return true;

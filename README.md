@@ -13,3 +13,7 @@
 ###### [Walkthrough All](https://drive.google.com/file/d/1hxsbcYj4ecOQVXScWHgz_Icil3mpiiu9/view?usp=sharing) (Downloadable for optimized view)
  
 -----------------------------------------------------------------------------------------------------------
+![MyTeam_OutCome_5Members](https://user-images.githubusercontent.com/95730728/156966456-b3c59751-f464-4b68-88a7-540181e2a51f.jpg)
+
+![MyTeam_OutCome_4Members](https://user-images.githubusercontent.com/95730728/156966481-600306ef-b43b-4a7f-9ec2-31233d36e125.jpg)
+
